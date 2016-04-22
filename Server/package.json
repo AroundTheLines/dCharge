@@ -1,0 +1,11 @@
+{
+  "name": "dcharge",
+  "version": "1.0.0",
+  "description": "Project for NordicIOTHackathon 2016",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Qile Wang, Quin Millard, Umesh Kumar Khanna, Ethan Liang",
+  "license": "MIT"
+}

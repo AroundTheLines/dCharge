@@ -33,9 +33,17 @@ server.listen(port, function(){
 
 io.on('connection', function (socket) {
 	console.log("Hello socket " + socket.id);
+	socket.broadcast.emit('new message', {
+			username: "asdsdsadsad",
+			message: "blargh"
+	});
 
 	socket.on('new message', function (data){
 		console.log("the data received is: " + data);
+		socket.broadcast.emit('new message', {
+			username: "asdsdsadsad",
+			message: "blah"
+		});
 	});
 
 	socket.on('login', function(data){
@@ -50,19 +58,21 @@ io.on('connection', function (socket) {
 });
 
 
-app.get('/', function(req, res){
-	patientsRef.push({
-		name: "John Smith",
-		birthday: new Date().toJSON(),
-		hospital: "some hospital",
-		heart_rate: [{
-			date: new Date().getTime(),
-			rate: Math.random()*100
-		}]
-	});
-	console.log('lol');
-	res.send("ayy");
-});
+app.use(express.static('./public/views'));
+// app.get('/', function(req, res){
+// 	patientsRef.push({
+// 		name: "John Smith",
+// 		birthday: new Date().toJSON(),
+// 		hospital: "some hospital",
+// 		heart_rate: [{
+// 			date: new Date().getTime(),
+// 			rate: Math.random()*100
+// 		}],
+//		treatment_type: "chemotherapy"
+// 	});
+// 	console.log('lol');
+// 	res.send("ayy");
+// });
 
 app.delete('/patient', function(req, res){
 	patientsRef.child(req.body.patient_id).remove(function(error){

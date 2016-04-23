@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-    
+
 
         heartRateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

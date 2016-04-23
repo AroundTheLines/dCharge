@@ -14,4 +14,13 @@
   background-color: red;
 }
 
+#navbars {
+  margin-bottom: 0;
+}
+
+.portrait {
+  width: 100px;
+  height: 100px;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -20062,12 +20062,29 @@
 
 	'use strict';
 
-	var React = __webpack_require__(1);
-	var io = __webpack_require__(167);
+	var _react = __webpack_require__(1);
 
-	var Header = __webpack_require__(217);
+	var _react2 = _interopRequireDefault(_react);
 
-	var App = React.createClass({
+	var _socket = __webpack_require__(167);
+
+	var _socket2 = _interopRequireDefault(_socket);
+
+	var _Header = __webpack_require__(217);
+
+	var _Header2 = _interopRequireDefault(_Header);
+
+	var _Index = __webpack_require__(223);
+
+	var _Index2 = _interopRequireDefault(_Index);
+
+	var _Navbars = __webpack_require__(221);
+
+	var _Navbars2 = _interopRequireDefault(_Navbars);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var App = _react2.default.createClass({
 		displayName: 'App',
 		getInitialState: function getInitialState() {
 			return {
@@ -20076,25 +20093,35 @@
 		},
 		componentWillMount: function componentWillMount() {
 			var sock = this.socket;
-			sock = io('http://63168325.ngrok.io');
+			sock = (0, _socket2.default)('http://localhost:3000');
 			sock.on('connect', this.connect);
+
 			sock.on('disconnect', this.disconnect);
 			sock.on('heart_rate_test', function (data) {
 				console.log(data);
-				sock.emit('heart_rate', "helloooooo");
+				sock.emit('heart_rate', {
+					helloooooo: "ooooo"
+				});
+			});
+
+			sock.on('global test', function (data) {
+				console.log("Global test successful " + data);
 			});
 		},
 		connect: function connect() {
 			this.setState({ status: 'connected' });
+			console.log("connected");
 		},
 		disconnect: function disconnect() {
 			this.setState({ status: 'disconnected' });
+			console.log("disconnected");
 		},
 		render: function render() {
-			return React.createElement(
+			return _react2.default.createElement(
 				'div',
 				null,
-				React.createElement(Header, { title: 'hello', status: this.state.status })
+				_react2.default.createElement(_Navbars2.default, null),
+				_react2.default.createElement(_Index2.default, null)
 			);
 		}
 	});
@@ -27745,6 +27772,348 @@
 	});
 
 	module.exports = Header;
+
+/***/ },
+/* 218 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NavPatient = __webpack_require__(219);
+
+	var _NavPatient2 = _interopRequireDefault(_NavPatient);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Sidebar = _react2.default.createClass({
+		displayName: 'Sidebar',
+		render: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ className: 'navbar-default sidebar', role: 'navigation' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'sidebar-nav navbar-collapse' },
+					_react2.default.createElement(
+						'ul',
+						{ className: 'nav', id: 'side-menu' },
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								'a',
+								{ href: 'index.html' },
+								_react2.default.createElement('i', { className: 'fa fa-dashboard fa-fw' }),
+								' Dashboard'
+							)
+						),
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								'a',
+								{ href: '#' },
+								_react2.default.createElement('i', { className: 'fa fa-users fa-fw' }),
+								' Patients',
+								_react2.default.createElement('span', { className: 'fa fa arrow' })
+							),
+							_react2.default.createElement(
+								'ul',
+								{ className: 'nav nav-second-level' },
+								_react2.default.createElement(
+									'li',
+									null,
+									_react2.default.createElement(
+										'a',
+										{ href: '#' },
+										'Second Level Item'
+									)
+								),
+								_react2.default.createElement(
+									'li',
+									null,
+									_react2.default.createElement(
+										'a',
+										{ href: '#' },
+										'Second Level Item'
+									)
+								)
+							)
+						)
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = Sidebar;
+
+/***/ },
+/* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var NavPatient = _react2.default.createClass({
+		displayName: "NavPatient",
+
+		// propTypes: {
+		// 	patientName: React.PropTypes.string.patientName
+		// },
+
+		getDefaultProps: function getDefaultProps() {
+			return {
+				detailsLink: "#",
+				patientName: "John Doe"
+			};
+		},
+		render: function render() {
+			_react2.default.createElement(
+				"li",
+				null,
+				_react2.default.createElement(
+					"a",
+					{ href: this.props.detailsLink },
+					this.props.patientName
+				)
+			);
+		}
+	});
+
+	module.exports = NavPatient;
+
+/***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Topbar = _react2.default.createClass({
+		displayName: "Topbar",
+		render: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "navbar-header" },
+				_react2.default.createElement(
+					"button",
+					{ type: "button", className: "navbar-toggle", "data-toggle": "collapse", "data-target": ".navbar-collapse" },
+					_react2.default.createElement(
+						"span",
+						{ className: "sr-only" },
+						"Toggle navigation"
+					),
+					_react2.default.createElement("span", { className: "icon-bar" }),
+					_react2.default.createElement("span", { className: "icon-bar" }),
+					_react2.default.createElement("span", { className: "icon-bar" })
+				),
+				_react2.default.createElement(
+					"a",
+					{ className: "navbar-brand", href: "index.html" },
+					"SB Admin v2.0"
+				)
+			);
+		}
+	});
+
+	module.exports = Topbar;
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Topbar = __webpack_require__(220);
+
+	var _Topbar2 = _interopRequireDefault(_Topbar);
+
+	var _Sidebar = __webpack_require__(218);
+
+	var _Sidebar2 = _interopRequireDefault(_Sidebar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Navbars = _react2.default.createClass({
+		displayName: 'Navbars',
+		render: function render() {
+			return _react2.default.createElement(
+				'nav',
+				{ 'class': 'navbar navbar-default navbar-static-top', role: 'navigation', id: 'navbars' },
+				_react2.default.createElement(_Topbar2.default, null),
+				_react2.default.createElement(_Sidebar2.default, null)
+			);
+		}
+	});
+
+	module.exports = Navbars;
+
+/***/ },
+/* 222 */,
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _PatientPanel = __webpack_require__(224);
+
+	var _PatientPanel2 = _interopRequireDefault(_PatientPanel);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Index = _react2.default.createClass({
+		displayName: 'Index',
+		render: function render() {
+			return _react2.default.createElement(
+				'div',
+				{ id: 'page-wrapper' },
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'col-lg-12' },
+						_react2.default.createElement(
+							'h1',
+							{ className: 'page-header' },
+							'Current Patients'
+						)
+					)
+				),
+				_react2.default.createElement(
+					'div',
+					{ className: 'row' },
+					_react2.default.createElement(_PatientPanel2.default, null),
+					_react2.default.createElement(_PatientPanel2.default, null),
+					_react2.default.createElement(_PatientPanel2.default, null),
+					_react2.default.createElement(_PatientPanel2.default, null)
+				)
+			);
+		}
+	});
+
+	module.exports = Index;
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var PatientPanel = _react2.default.createClass({
+		displayName: "PatientPanel",
+		render: function render() {
+			return _react2.default.createElement(
+				"div",
+				{ className: "col-lg-3 col-md-6" },
+				_react2.default.createElement(
+					"div",
+					{ className: "panel panel-primary" },
+					_react2.default.createElement(
+						"div",
+						{ className: "panel-heading" },
+						_react2.default.createElement(
+							"div",
+							{ className: "row" },
+							_react2.default.createElement(
+								"div",
+								{ className: "col-xs-3" },
+								_react2.default.createElement("img", { src: "imgs/camel1.jpg", alt: "camelface", className: "img-circle portrait" })
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "col-xs-9 text-right" },
+								_react2.default.createElement(
+									"div",
+									{ className: "huge" },
+									"John Smith"
+								),
+								_react2.default.createElement(
+									"div",
+									null,
+									"1337 University Ave L8R 1O1"
+								),
+								_react2.default.createElement(
+									"div",
+									null,
+									"Last Checkin : 30m"
+								)
+							)
+						)
+					),
+					_react2.default.createElement(
+						"a",
+						{ href: "heart-rate.html" },
+						_react2.default.createElement(
+							"div",
+							{ className: "panel-footer" },
+							_react2.default.createElement(
+								"span",
+								{ className: "pull-left" },
+								"Patient Details"
+							),
+							_react2.default.createElement(
+								"span",
+								{ className: "pull-right" },
+								_react2.default.createElement("i", { className: "fa fa-arrow-circle-right" })
+							),
+							_react2.default.createElement("div", { className: "clearfix" })
+						)
+					),
+					_react2.default.createElement(
+						"a",
+						{ href: "#myPopup" },
+						_react2.default.createElement(
+							"div",
+							{ className: "panel-footer" },
+							_react2.default.createElement(
+								"span",
+								{ className: "pull-left" },
+								"Contact Now"
+							),
+							_react2.default.createElement(
+								"span",
+								{ className: "pull-right" },
+								_react2.default.createElement("i", { className: "fa fa-arrow-circle-right" })
+							),
+							_react2.default.createElement("div", { className: "clearfix" })
+						)
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = PatientPanel;
 
 /***/ }
 /******/ ]);

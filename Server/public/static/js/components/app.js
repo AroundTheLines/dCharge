@@ -1,8 +1,11 @@
 'use strict';
-var React = require('react');
-var io = require('socket.io-client');
+import React from 'react';
+import io from 'socket.io-client';
 
-var Header = require('./Header.js');
+import Header from './Header.js';
+import Index from './webpage/Index.js';
+import Navbars from './navbar/Navbars.js';
+
 
 var App = React.createClass({
 
@@ -14,27 +17,37 @@ var App = React.createClass({
 
 	componentWillMount(){
 		var sock = this.socket;
-		sock = io('http://63168325.ngrok.io');
+		sock = io('http://localhost:3000');
 		sock.on('connect', this.connect);
+
 		sock.on('disconnect', this.disconnect);
 		sock.on('heart_rate_test', function(data){
 			console.log(data);
-			sock.emit('heart_rate', "helloooooo")
+			sock.emit('heart_rate', {
+				helloooooo: "ooooo"
+			})
+		});
+
+		sock.on('global test', function(data){
+			console.log("Global test successful " + data);
 		});
 	},
 
 	connect(){
 		this.setState({status: 'connected'});
+		console.log("connected");
 	},
 
 	disconnect(){
 		this.setState({status: 'disconnected'});
+		console.log("disconnected");
 	},
 
 	render(){
 		return(
 			<div>
-				<Header title="hello" status={this.state.status}/>
+				<Navbars />
+				<Index />
 			</div>
 		)
 	}

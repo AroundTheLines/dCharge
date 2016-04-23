@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Live polling Kappa</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <style type="text/css">
 
+    #connection-status{
+      height: 100px;
+      width: 100px;
+      display: block;
+    }
+
+    #connection-status.connected{
+      color: green;
+      background-color: green;
+    }
+
+    #connection-status.disconnected{
+      color: red;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="react-container"></div>
+  <script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+</html>

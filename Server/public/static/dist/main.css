@@ -1,0 +1,17 @@
+#connection-status {
+  height: 100px;
+  width: 100px;
+  display: block;
+}
+
+#connection-status.connected {
+  color: green;
+  background-color: green;
+}
+
+#connection-status.disconnected {
+  color: red;
+  background-color: red;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "nioth.dev.dcharge"
-        minSdkVersion 20
+        minSdkVersion 21
         targetSdkVersion 20
         versionCode 1
         versionName "1.0"
@@ -17,6 +17,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//    allprojects {
+//        repositories {
+//            maven { url "https://jitpack.io" }
+//        }
+//    }
+
 }
 
 dependencies {
@@ -26,5 +32,9 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.google.android.gms:play-services-wearable:+'
+    compile 'com.android.support:design:22.2.0'
+//    compile 'com.github.ybq:Android-SpinKit:1.0.3'
     compile 'com.google.android.gms:play-services:8.4.0'
-}
+    compile 'com.github.markushi:circlebutton:1.1'
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+ }

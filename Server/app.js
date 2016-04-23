@@ -36,6 +36,16 @@ io.on('connection', function (socket) {
 
 	socket.on('new message', function (data){
 		console.log("the data received is: " + data);
+	});
+
+	socket.on('login', function(data){
+		console.log(data.username);
+		console.log(data.password);
+		if(data.username === "tester" && data.password === "password"){
+			socket.broadcast.emit('Logged In', {
+				loggedIn: true
+			})
+		}
 	})
 });
 

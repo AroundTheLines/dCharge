@@ -13,9 +13,9 @@ var patientsRef = new Firebase("https://dcharge.firebaseio.com/").child('patient
 
 var port = process.env.PORT || 8080;
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cors());
 
 
 
@@ -25,17 +25,7 @@ var port = process.env.PORT || 8080;
 // 	res.send('okay');
 // });
 
-// app.delete('/patient', function(req, res){
-// 	patientsRef.child(req.body.patient_id).remove(function(error){
-// 		if(error){
-// 			console.log("error");
-// 			res.send("error");
-// 		}else{
-// 			console.log("successfully removed");
-// 			res.send("successfully removed");
-// 		}
-// 	});
-// });
+
 
 server.listen(port, function(){
 	console.log("magic happens on port " + port);
@@ -64,8 +54,17 @@ app.get('/', function(req, res){
 	res.send("ayy");
 });
 
-
-
+app.delete('/patient', function(req, res){
+	patientsRef.child(req.body.patient_id).remove(function(error){
+		if(error){
+			console.log("error");
+			res.send("error");
+		}else{
+			console.log("successfully removed");
+			res.send("successfully removed");
+		}
+	});
+});
 
 
 

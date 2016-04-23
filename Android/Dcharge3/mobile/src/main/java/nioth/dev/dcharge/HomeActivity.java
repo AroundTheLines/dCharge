@@ -2,6 +2,7 @@ package nioth.dev.dcharge;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +16,6 @@ public class HomeActivity extends AppCompatActivity {
     View heartRateButton;
     View responseHistoryButotn;
     View hospitalInfoButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
+    
 
         heartRateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

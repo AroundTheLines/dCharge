@@ -20,7 +20,17 @@
              <!--colorControlHighlight & colorSwitchThumbNormal. &ndash;&gt;-->
     <!--</style>-->
 
+
+    <!--<color name="primary">#2196F3</color>-->
+    <!--<color name="primary_dark">#1976D2</color>-->
+    <!--<color name="primary_light">#BBDEFB</color>-->
+    <!--<color name="accent">#8BC34A</color>-->
+    <!--<color name="primary_text">#212121</color>-->
+    <!--<color name="secondary_text">#727272</color>-->
+    <!--<color name="icons">#FFFFFF</color>-->
+    <!--<color name="divider">#B6B6B6</color>-->
     <style name="AppTheme" parent="android:Theme.Material">
+
         <!-- Main theme colors -->
         <!--   your app branding color for the app bar -->
         <item name="android:colorPrimary">@color/color_set_1_primary</item>
@@ -33,6 +43,16 @@
     <style name="AppThemeOld" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
 
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">#8BC34A</item>
+        <item name="android:textSize">20sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorControlNormal">#8BC34A</item>
+        <item name="colorControlActivated">#8BC34A</item>
     </style>
 
          <!-- your theme inherits from the material theme -->

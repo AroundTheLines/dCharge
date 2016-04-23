@@ -18,6 +18,33 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:src="@android:drawable/ic_lock_idle_charging" />
+
+
+    <!--<ProgressBar-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/progress"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_alignParentStart="true" >-->
+
+        <!--<com.github.ybq.android.spinkit.SpinKitView-->
+            <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--android:id="@+id/spin_kit"-->
+            <!--style="@style/SpinKitView.Large.Circle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--app:SpinKit_Color="@color/accent" />-->
+
+
+    <!--</ProgressBar>-->
 
 
 </RelativeLayout>

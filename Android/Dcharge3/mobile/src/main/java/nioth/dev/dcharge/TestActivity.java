@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+//import android.widget.ProgressBar;
+
+//import com.github.ybq.android.spinkit.style.DoubleBounce;
 
 public class TestActivity extends AppCompatActivity {
 
@@ -14,6 +17,9 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+//        ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
+//        DoubleBounce doubleBounce = new DoubleBounce();
+//        progressBar.setIndeterminateDrawable(doubleBounce);
 
     }
 

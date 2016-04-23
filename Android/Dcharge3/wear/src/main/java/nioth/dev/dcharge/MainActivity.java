@@ -11,9 +11,8 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.github.nkzawa.socketio.client.IO;
-import com.github.nkzawa.socketio.client.Socket;
 
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.net.URISyntaxException;
 import java.util.List;
@@ -28,12 +27,8 @@ public class MainActivity extends Activity implements SensorEventListener {
 
     private Sensor mHeartRateSensor;
 
-    private Socket mSocket;
-    {
-        try {
-            mSocket = IO.socket("http://42aee835.ngrok.io/heart_rate");
-        } catch (URISyntaxException e) {}
-    }
+    private GoogleApiClient googleApiClient;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +46,6 @@ public class MainActivity extends Activity implements SensorEventListener {
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mHeartRateSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_HEART_RATE);
 
-        mSocket.connect();
     }
 
 
@@ -64,7 +58,6 @@ public class MainActivity extends Activity implements SensorEventListener {
     protected void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
-        mSocket.disconnect();
     }
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -75,15 +68,9 @@ public class MainActivity extends Activity implements SensorEventListener {
         String TAG = "tag";
         Log.i(TAG, "--------------------------");
         Log.i(TAG, String.valueOf(event.values[0]));
-        attemptSend(String.valueOf(event.values[0]));
         Log.i(TAG, ""+ event.sensor.getType());
         Log.i("live","--------------");
     }
 
-    private void attemptSend(String sendMessage) {
-        String message = sendMessage;
 
-
-        mSocket.emit("new message", message);
-    }
 }

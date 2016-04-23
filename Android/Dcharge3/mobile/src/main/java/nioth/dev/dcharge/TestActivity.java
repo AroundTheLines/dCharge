@@ -17,6 +17,8 @@ public class TestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_test);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+
 //        ProgressBar progressBar = (ProgressBar)findViewById(R.id.progress);
 //        DoubleBounce doubleBounce = new DoubleBounce();
 //        progressBar.setIndeterminateDrawable(doubleBounce);

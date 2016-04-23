@@ -18,9 +18,31 @@
         android:background="@color/theme_dialer_primary"
         android:titleTextColor="#fff"
         android:subtitleTextColor="#fff"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        android:elevation="2dp">
+         <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
+        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:contentDescription="logo"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="left"-->
+            <!--android:id="@+id/logout_button"-->
+            <!--android:text="Logout"-->
+            <!--/>-->
+
+
+        <TextView
+            android:layout_width="wrap_content"
+             android:text="Home"
+            android:id="@+id/title"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+              />
+
+
+    </android.support.v7.widget.Toolbar>
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -87,5 +109,7 @@
             />
 
     </LinearLayout>
+
+
 
 </RelativeLayout>

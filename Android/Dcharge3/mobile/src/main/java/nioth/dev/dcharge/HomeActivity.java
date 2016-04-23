@@ -10,12 +10,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
     View heartRateButton;
     View responseHistoryButotn;
     View hospitalInfoButton;
+    Button logoutButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +27,20 @@ public class HomeActivity extends AppCompatActivity {
         responseHistoryButotn = findViewById(R.id.response_history_button);
         hospitalInfoButton = findViewById(R.id.hospital_info);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.getMenu().clear();
         setSupportActionBar(myToolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+        myToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_media_play));
+        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //What to do on back clicked
+            }
+        });
 
 
         heartRateButton.setOnClickListener(new View.OnClickListener() {

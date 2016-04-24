@@ -221,7 +221,14 @@ public class HomeActivity extends AppCompatActivity implements GoogleApiClient.C
         }
     };
 
-    
+    Emitter.Listener onGraphData = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            JSONObject data = (JSONObject) args[0];
+            
+
+        }
+    };
 
 
     private void attemptSend(String sendMessage) {

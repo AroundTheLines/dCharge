@@ -13,9 +13,9 @@
 
 
 
-        <TextView
+    <TextView
     android:layout_width="wrap_content"
-    android:text="Joshua Smith"
+    android:text="Umesh Khanna"
     android:id="@+id/title"
     android:layout_height="wrap_content"
     android:textColor="#fff"
@@ -26,13 +26,13 @@
     android:layout_centerHorizontal="true" />
 
 
-    <!--<ImageView-->
-        <!--android:layout_width="20dp"-->
-        <!--android:layout_height="20dp"-->
-        <!--android:layout_marginTop="18dp"-->
-        <!--android:id="@+id/back_button"-->
-        <!--android:layout_marginLeft="20dp"-->
-        <!--android:src="@drawable/back" />-->
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/back_button"
+        android:layout_marginLeft="370dp"
+        android:src="@drawable/signout" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"

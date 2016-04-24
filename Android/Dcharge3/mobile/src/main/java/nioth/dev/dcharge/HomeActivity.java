@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dd.morphingbutton.MorphingButton;
@@ -79,7 +80,16 @@ public class HomeActivity extends AppCompatActivity implements GoogleApiClient.C
         responseHistoryButotn = findViewById(R.id.response_history_button);
         hospitalInfoButton = findViewById(R.id.hospital_info);
         callDoctorButton = (Button) findViewById(R.id.call_doctor_button);
-
+        ImageView backButton = (ImageView) findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+              //EXIT
+            }
+        });
 
         callDoctorButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

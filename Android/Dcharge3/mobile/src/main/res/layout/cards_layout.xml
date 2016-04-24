@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="4dp"
+        card_view:cardCornerRadius="5dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:clickable="false"
@@ -30,6 +30,9 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             >
+
+
+
             <TextView
                 android:layout_width="293dp"
                 android:layout_height="60dp"
@@ -37,21 +40,31 @@
                 android:maxLines="2"
                 android:scrollHorizontally="true"
                 android:id="@+id/question_textview"
+                android:layout_marginLeft="10dp"
                 android:textSize="14dp"
                 android:textColor="#353839"
                 android:gravity="center_vertical" />
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
 
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:scrollHorizontally="true"
-                android:id="@+id/answer_textview"
-                android:textSize="14dp"
+            <ImageView
+                 android:layout_height="wrap_content"
+                android:layout_width="60dp"
                 android:gravity="center_horizontal"
-                android:textColor="#353839"/>
+                android:id="@+id/answer_image"
+                android:src="@drawable/check"
+                />
+
+            <!--<TextView-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="match_parent"-->
+
+                <!--android:ellipsize="end"-->
+                <!--android:maxLines="1"-->
+                <!--android:scrollHorizontally="true"-->
+                <!--android:id="@+id/time_textview"-->
+                <!--android:textSize="14dp"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:textColor="#353839"/>-->
 
             <!--<TextView-->
                 <!--android:layout_width="100dp"-->
@@ -74,6 +87,15 @@
                 <!--android:background="@android:color/darker_gray"/>-->
 
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="10m"
+            android:textSize="15dp"
+            android:id="@+id/time_textview" />
 
     </android.support.v7.widget.CardView>
 

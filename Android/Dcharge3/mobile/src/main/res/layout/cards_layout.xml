@@ -41,13 +41,13 @@
                 android:scrollHorizontally="true"
                 android:id="@+id/question_textview"
                 android:layout_marginLeft="10dp"
-                android:textSize="14dp"
+                android:textSize="20dp"
                 android:textColor="#353839"
                 android:gravity="center_vertical" />
 
 
             <ImageView
-                 android:layout_height="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_width="60dp"
                 android:gravity="center_horizontal"
                 android:id="@+id/answer_image"
@@ -55,36 +55,36 @@
                 />
 
             <!--<TextView-->
-                <!--android:layout_width="100dp"-->
-                <!--android:layout_height="match_parent"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="match_parent"-->
 
-                <!--android:ellipsize="end"-->
-                <!--android:maxLines="1"-->
-                <!--android:scrollHorizontally="true"-->
-                <!--android:id="@+id/time_textview"-->
-                <!--android:textSize="14dp"-->
-                <!--android:gravity="center_horizontal"-->
-                <!--android:textColor="#353839"/>-->
+            <!--android:ellipsize="end"-->
+            <!--android:maxLines="1"-->
+            <!--android:scrollHorizontally="true"-->
+            <!--android:id="@+id/time_textview"-->
+            <!--android:textSize="14dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:textColor="#353839"/>-->
 
             <!--<TextView-->
-                <!--android:layout_width="100dp"-->
-                <!--android:layout_height="match_parent"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="match_parent"-->
 
-                <!--android:ellipsize="end"-->
-                <!--android:maxLines="1"-->
-                <!--android:scrollHorizontally="true"-->
-                <!--android:id="@+id/time"-->
-                <!--android:textSize="14dp"-->
-                <!--android:gravity="center_horizontal"-->
-                <!--android:textColor="#353839"/>-->
+            <!--android:ellipsize="end"-->
+            <!--android:maxLines="1"-->
+            <!--android:scrollHorizontally="true"-->
+            <!--android:id="@+id/time"-->
+            <!--android:textSize="14dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:textColor="#353839"/>-->
 
             <!--<View-->
-                <!--android:layout_width="2dp"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_height="20dp"-->
-                <!--android:id="@+id/separator2"-->
-                <!--android:visibility="visible"-->
-                <!--android:background="@android:color/darker_gray"/>-->
+            <!--android:layout_width="2dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_height="20dp"-->
+            <!--android:id="@+id/separator2"-->
+            <!--android:visibility="visible"-->
+            <!--android:background="@android:color/darker_gray"/>-->
 
         </LinearLayout>
         <TextView

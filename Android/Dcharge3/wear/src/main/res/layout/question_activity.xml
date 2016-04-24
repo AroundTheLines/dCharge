@@ -5,33 +5,51 @@
     android:id="@+id/QuestionId"
     android:background="@color/black">
 
-    <TextView
-        android:id="@+id/QuestionText"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:scrollHorizontally="false"
-        android:minLines="2"
-        android:paddingTop="25dp"
-        android:text="Sample Text"
-        />
+    <!--<TextView-->
+        <!--android:id="@+id/QuestionText"-->
+        <!--android:layout_width="300dp"-->
+        <!--android:layout_height="wrap_content"-->
+         <!--android:paddingTop="25dp"-->
+        <!--android:text="Sample Text"-->
+        <!--android:layout_above="@+id/yesButton"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_marginLeft="35dp"-->
+        <!--android:maxLines="2"-->
+        <!--android:layout_marginRight="35dp"-->
+        <!--android:layout_alignParentEnd="true" />-->
 
     <android.support.wearable.view.CircularButton
         android:id="@+id/yesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_marginLeft="20dp"
         android:layout_alignParentBottom="true"
+        android:src="@drawable/check"
         android:layout_marginBottom="40dp"
         />
 
     <android.support.wearable.view.CircularButton
         android:id="@+id/noButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="145dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="130dp"
         android:layout_alignParentBottom="true"
+        android:src="@drawable/cross"
         android:layout_marginBottom="40dp"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="25dp"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Medium Text"
+        android:id="@+id/QuestionText"
+        android:layout_above="@+id/yesButton"
+        android:layout_centerHorizontal="true"
+         android:layout_alignParentTop="true" />
 
 </RelativeLayout>

@@ -33,7 +33,8 @@ public class HeartRateActivity extends AppCompatActivity {
         // creating list of entry
         ArrayList<Entry> entries = new ArrayList<>();
         //entry(amount, entry #)
-
+        //DATA FOR GRAPH
+        
         entries.add(new Entry(4f, 0));
         entries.add(new Entry(8f, 1));
         entries.add(new Entry(6f, 2));

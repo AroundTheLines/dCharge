@@ -59,7 +59,7 @@ import nioth.dev.dcharge.R;
             TextView textViewHolderQuestion = holder.textViewQuestion;
             TextView textViewHolderTime = holder.textViewTime;
             ImageView imageViewHolderAnswer = holder.imageViewAnswer;
-            String questionString = listingDataSet.get(listPosition).getQuestion() + " THIS IS A SMPLE QUESTION TO SEE HOW BIG IT GETSBED";
+            String questionString = listingDataSet.get(listPosition).getQuestion() ;
             String timeString = String.valueOf(listingDataSet.get(listPosition).getTime()) + " tiime";
             String answerString = String.valueOf(listingDataSet.get(listPosition).getAnswer());
 

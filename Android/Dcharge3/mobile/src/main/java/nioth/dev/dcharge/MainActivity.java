@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
@@ -31,6 +32,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URISyntaxException;
+import java.util.Locale;
 import java.util.Set;
 
 import at.markushi.ui.CircleButton;
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     private static final String HEART_RATE_MONITOR = "heart_rate";
     private GoogleApiClient mGoogleApiClient;
+
+    private TextToSpeech t1;
+
 
     private Socket mSocket;
     {
@@ -102,11 +107,23 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 .addOnConnectionFailedListener(this)
                 .build();
 
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
+
+
+
         CircleButton button2 = (CircleButton) findViewById(R.id.heart_rate_history_button);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 attemptSend("Hello");
+                t1.speak("How are you feeling right now?", TextToSpeech.QUEUE_FLUSH, null);
             }
         });
 
@@ -115,13 +132,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         IntentFilter messageFilter = new IntentFilter(Intent.ACTION_SEND);
         MessageReceiver messageReceiver = new MessageReceiver();
         LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver, messageFilter);
+
+
+
     }
 
 
     public class MessageReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i("working?", "working");
             String message = intent.getStringExtra("message");
             attemptSend(message);
         }

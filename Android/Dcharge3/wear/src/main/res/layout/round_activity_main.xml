@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="nioth.dev.dcharge.MainActivity"
+    android:id="@+id/watch_view"
     tools:deviceIds="wear_round">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_centerVertical="true"
         android:text="@string/hello_round" />
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Perform Test"
@@ -22,9 +24,13 @@
         android:paddingTop="15dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:id="@+id/button"
         android:layout_marginTop="50dp"
         android:textColor="#fff"
         android:background="#8BC34A"
         android:layout_centerHorizontal="true" />
+
+    <FrameLayout
+        android:id="@+id/fragment_holder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

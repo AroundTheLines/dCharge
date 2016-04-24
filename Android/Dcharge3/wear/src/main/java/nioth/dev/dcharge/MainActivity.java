@@ -1,6 +1,10 @@
 package nioth.dev.dcharge;
 
 import android.app.Activity;
+import android.net.Uri;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +14,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
+
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.wearable.view.WatchViewStub;
 import android.text.TextUtils;
@@ -31,8 +37,8 @@ import com.google.android.gms.wearable.Wearable;
 import java.net.URISyntaxException;
 import java.util.List;
 
-public class MainActivity extends Activity implements SensorEventListener, GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener {
+public class MainActivity extends FragmentActivity implements SensorEventListener, GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener, QuestionFragment.OnFragmentInteractionListener {
 
     private TextView mTextView;
 
@@ -46,32 +52,43 @@ public class MainActivity extends Activity implements SensorEventListener, Googl
 
     private String TAG = "acb";
 
+    private static final int SPEECH_REQUEST_CODE =0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mGoogleApiClient = new GoogleApiClient.Builder(MainActivity.this)
-                .addApi(Wearable.API)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .build();
 
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {
             @Override
-            public void onLayoutInflated(WatchViewStub stub) {
+            public void onLayoutInflated(final WatchViewStub stub) {
                 mTextView = (TextView) stub.findViewById(R.id.text);
 
                 Button button = (Button) findViewById(R.id.button);
 
                 final String HEART_MONITOR = "/heart_monitor";
 
+
+
                 button.setOnClickListener(new View.OnClickListener() {
-                    String message = "ASDB";
+
+
+
                     @Override
                     public void onClick(View v) {
-                        new SendToDataLayerThread("/heart-monitor", message).start();
+                        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+
+                        removeViews(stub);
+
+                        QuestionFragment questionFragment = QuestionFragment.newInstance();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_holder,questionFragment).commit();
+
+
+
+//                        startActivityForResult(intent, SPEECH_REQUEST_CODE);
                     }
 
                 });
@@ -80,6 +97,11 @@ public class MainActivity extends Activity implements SensorEventListener, Googl
         });
 
 
+        mGoogleApiClient = new GoogleApiClient.Builder(MainActivity.this)
+                .addApi(Wearable.API)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .build();
 
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -91,6 +113,28 @@ public class MainActivity extends Activity implements SensorEventListener, Googl
         }
 
 
+    }
+
+    public static void removeViews(WatchViewStub stub)
+    {
+        View mTextView = stub.findViewById(R.id.text);
+        View mButtonView = stub.findViewById(R.id.button);
+        mTextView.setVisibility(View.GONE);
+        mButtonView.setVisibility(View.GONE);
+
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == SPEECH_REQUEST_CODE && resultCode == RESULT_OK) {
+            List<String> results = data.getStringArrayListExtra(
+                    RecognizerIntent.EXTRA_RESULTS);
+            String spokenText = results.get(0);
+            Log.i("spokenText", spokenText);
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -166,6 +210,11 @@ public class MainActivity extends Activity implements SensorEventListener, Googl
                 }
             }
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri){
+        Log.i("workd","abcd");
     }
 
 

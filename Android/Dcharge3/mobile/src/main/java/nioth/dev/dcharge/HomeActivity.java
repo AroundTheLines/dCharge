@@ -1,6 +1,5 @@
 package nioth.dev.dcharge;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
+
+import nioth.dev.dcharge.PastQuestions.QuestionsActivity;
 
 public class HomeActivity extends AppCompatActivity {
     View heartRateButton;
@@ -56,12 +56,8 @@ public class HomeActivity extends AppCompatActivity {
         responseHistoryButotn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                Context context = getApplicationContext();
-                CharSequence text = "Response!";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                Intent intent = new Intent(HomeActivity.this, HeartRateActivity.class);
+                startActivity(intent);
             }
         });
 

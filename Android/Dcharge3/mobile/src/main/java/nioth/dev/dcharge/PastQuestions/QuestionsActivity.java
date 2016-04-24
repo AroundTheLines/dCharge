@@ -1,12 +1,7 @@
-package nioth.dev.dcharge;
+package nioth.dev.dcharge.PastQuestions;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,10 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import nioth.dev.dcharge.R;
 
 public class QuestionsActivity extends ActionBarActivity {
 
@@ -43,11 +38,11 @@ public class QuestionsActivity extends ActionBarActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         questions = new ArrayList<Question>();
-        for (int i = 0; i < MyData.nameArray.length; i++) {
+        for (int i = 0; i < MyData.questionsArray.length; i++) {
             questions.add(new Question(
-                    MyData.nameArray[i],
-                    MyData.addressArray[i],
-                    MyData.contactPersonArray[i],
+                    MyData.questionsArray[i],
+                    MyData.answersArray[i],
+                    MyData.timeArray[i],
                     MyData.id_[i]
             ));
         }

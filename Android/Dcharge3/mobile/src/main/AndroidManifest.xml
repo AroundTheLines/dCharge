@@ -3,7 +3,7 @@
     package="nioth.dev.dcharge" >
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -51,8 +51,12 @@
             android:label="@string/title_activity_test" >
         </activity>
         <activity
-            android:name=".QuestionsActivity"
+            android:name=".PastQuestions.QuestionsActivity"
             android:label="@string/title_activity_questions" >
+        </activity>
+        <activity
+            android:name=".HeartRateActivity"
+            android:label="@string/title_activity_heart_rate" >
         </activity>
     </application>
 

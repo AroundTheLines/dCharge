@@ -65,7 +65,7 @@
         android:paddingTop="15dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:id="@+id/begin_test_button"
+        android:id="@+id/call_doctor_button"
         android:layout_marginTop="50dp"
         android:textColor="#fff"
         android:layout_below="@+id/patient_image"
@@ -76,7 +76,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/begin_test_button"
+        android:layout_below="@+id/call_doctor_button"
         android:layout_marginTop="70dp"
         >
         <at.markushi.ui.CircleButton

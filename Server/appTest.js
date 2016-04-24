@@ -29,7 +29,8 @@ var server = app.listen(3000, function(){
 });
 
 var heartRates = [];
-
+var hourlyAvg = 0;
+var numpoints = 1;
 var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function(socket){
@@ -52,6 +53,14 @@ io.sockets.on('connection', function(socket){
 			rate: data
 		});
 		
+		hourlyAvg = ((numpoints - 1)*hourlyAvg + data)/numpoints;
+		numpoints++;
+		if(date % 3600000 == 0){
+			socket.emit('hourly_avg_heart_rate', hourlyAvg);
+			numpoints = 1;
+			hourlyAvg = 0;
+		}
+
 		heartRates.push(data);
 		var isAProblem = isProblem(heartRates);
 		console.log("response from problem is: %s", isAProblem);
@@ -73,6 +82,7 @@ io.sockets.on('connection', function(socket){
 
 // Params: Array of numbers (heart rates)
 function isProblem(heartRate){
+		var isFirst = true
 		var mean = 0;
 		var stdDev = 0;
 		var numStored = 7;
@@ -86,8 +96,11 @@ function isProblem(heartRate){
 			stdDev += Math.pow(heartRateValues[i] - mean,2);
 		}
 		stdDev = Math.sqrt(stdDev/numStored);
-
-		if(stdDev > 10){
+		if(heartRateValues[heartRateValues.length - 1] == 0 && isFirst == true){
+			isFirst = false;
+			return"";
+		}
+		else if(stdDev > 10){
 			return "Heart beat has high varience";
 		}
 		else if(heartRateValues[heartRateValues.length - 1] < 50){

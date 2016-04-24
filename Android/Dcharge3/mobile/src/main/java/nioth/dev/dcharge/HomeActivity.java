@@ -46,12 +46,8 @@ public class HomeActivity extends AppCompatActivity {
         heartRateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                Context context = getApplicationContext();
-                CharSequence text = "Hello toast!";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
+                Intent intent = new Intent(HomeActivity.this, InfoActivity.class);
+                startActivity(intent);
             }
         });
 

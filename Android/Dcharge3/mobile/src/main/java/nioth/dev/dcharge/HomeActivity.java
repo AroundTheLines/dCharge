@@ -46,7 +46,8 @@ public class HomeActivity extends AppCompatActivity {
         heartRateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                Intent intent = new Intent(HomeActivity.this, HistoryActivity.class);
+
+                Intent intent = new Intent(HomeActivity.this, QuestionsActivity.class);
                 startActivity(intent);
             }
         });

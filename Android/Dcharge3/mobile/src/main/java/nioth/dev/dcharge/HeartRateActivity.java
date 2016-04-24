@@ -32,6 +32,8 @@ public class HeartRateActivity extends AppCompatActivity {
         LineChart lineChart = (LineChart) findViewById(R.id.chart);
         // creating list of entry
         ArrayList<Entry> entries = new ArrayList<>();
+        //entry(amount, entry #)
+
         entries.add(new Entry(4f, 0));
         entries.add(new Entry(8f, 1));
         entries.add(new Entry(6f, 2));
@@ -47,9 +49,10 @@ public class HeartRateActivity extends AppCompatActivity {
         labels.add("2:00");
         labels.add("3:00");
         labels.add("4:00");
+        dataset.setDrawFilled(true);
         LineData data = new LineData(labels, dataset);
         lineChart.setData(data); // set the data and list of lables into chart
-
+        lineChart.animateY(5000);
         lineChart.setDescription("Description");
 
 //        BarData data = new BarData(labels, dataset);

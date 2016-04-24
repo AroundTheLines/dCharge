@@ -1,10 +1,12 @@
 package nioth.dev.dcharge;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -28,6 +30,13 @@ public class HeartRateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heart_rate);
+        ImageView backButton = (ImageView) findViewById(R.id.back_button);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(HeartRateActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
 
         LineChart lineChart = (LineChart) findViewById(R.id.chart);
         // creating list of entry
@@ -35,26 +44,27 @@ public class HeartRateActivity extends AppCompatActivity {
         //entry(amount, entry #)
         //DATA FOR GRAPH
         
-        entries.add(new Entry(4f, 0));
-        entries.add(new Entry(8f, 1));
-        entries.add(new Entry(6f, 2));
-        entries.add(new Entry(2f, 3));
-        entries.add(new Entry(18f, 4));
-        entries.add(new Entry(9f, 5));
-        LineDataSet dataset = new LineDataSet(entries, "# of Calls");
+        entries.add(new Entry(63f, 0));
+        entries.add(new Entry(64f, 1));
+        entries.add(new Entry(74f, 2));
+        entries.add(new Entry(97f, 3));
+        entries.add(new Entry(77f, 4));
+        entries.add(new Entry(73f, 5));
+        LineDataSet dataset = new LineDataSet(entries, "Beats Per Minute");
 
         ArrayList<String> labels = new ArrayList<String>();
-        labels.add("11:00");
-        labels.add("12:00");
-        labels.add("1:00");
-        labels.add("2:00");
-        labels.add("3:00");
-        labels.add("4:00");
+        labels.add("3:05");
+        labels.add("4:15");
+        labels.add("5:17");
+        labels.add("6:23");
+        labels.add("7:00");
+        labels.add("8:40");
         dataset.setDrawFilled(true);
         LineData data = new LineData(labels, dataset);
         lineChart.setData(data); // set the data and list of lables into chart
         lineChart.animateY(5000);
-        lineChart.setDescription("Description");
+        lineChart.setDescription("Heart Rate");
+
 
 //        BarData data = new BarData(labels, dataset);
 //        chart.setData(data);

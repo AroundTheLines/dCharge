@@ -4,48 +4,29 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="nioth.dev.dcharge.HeartRateActivity">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/theme_dialer_primary"
-        android:titleTextColor="#fff"
-        android:subtitleTextColor="#fff"
-        android:elevation="2dp">
-        <!--android:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
-        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
-        <!--<Button-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:contentDescription="logo"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="left"-->
-        <!--android:id="@+id/logout_button"-->
-        <!--android:text="Logout"-->
-        <!--/>-->
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:text="Home"
-            android:id="@+id/title"
-            android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:layout_gravity="center"
-             android:textSize="20dp"
-             />
-
-
-    </android.support.v7.widget.Toolbar>
+    tools:context="nioth.dev.dcharge.HeartRateActivity"
+    android:background="@color/theme_dialer_primary"
+    >
     <TextView
         android:layout_width="wrap_content"
         android:text="Heart Rate History"
-        android:id="@+id/title_graph"
+        android:id="@+id/title"
         android:layout_height="wrap_content"
         android:textColor="#fff"
         android:layout_gravity="center"
-        android:textSize="20dp"
-        />
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="18dp"
+        android:id="@+id/back_button"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/back" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:layout_marginTop="100dp"

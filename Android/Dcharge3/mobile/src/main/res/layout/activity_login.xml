@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:hint="Patient ID"
             android:layout_above="@+id/login_button"
+            android:textColor="#fff"
             android:layout_alignParentStart="true"
             android:gravity="center"
             android:textAlignment="center"
@@ -57,13 +58,15 @@
         <EditText
             android:id="@+id/password"
             android:layout_width="250dp"
+            android:textColor="#fff"
             android:layout_height="wrap_content"
             android:hint="Password"
             android:layout_above="@+id/login_button"
             android:layout_alignParentStart="true"
             android:gravity="center"
             android:textAlignment="center"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:inputType="textPassword" />
 
     </android.support.design.widget.TextInputLayout>
     <Button
@@ -77,6 +80,7 @@
         android:id="@+id/login_button"
         android:layout_below="@id/password_input_layout"
          android:layout_centerHorizontal="true"
+        android:textColor="#fff"
         android:layout_marginTop="20dp"
         android:background="#8BC34A"/>
 

@@ -80,24 +80,6 @@ public class HomeActivity extends AppCompatActivity implements GoogleApiClient.C
         hospitalInfoButton = findViewById(R.id.hospital_info);
         callDoctorButton = (Button) findViewById(R.id.call_doctor_button);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-
-
-        myToolbar.getMenu().clear();
-        setSupportActionBar(myToolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-
-        myToolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_media_play));
-        myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //What to do on back clicked
-            }
-        });
-
 
         callDoctorButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -107,16 +89,7 @@ public class HomeActivity extends AppCompatActivity implements GoogleApiClient.C
 
                 Toast toast = Toast.makeText(context, text, duration);
                 toast.show();
-//                new AlertDialog.Builder(getApplicationContext())
-//                        .setTitle("Request Sent")
-//                        .setMessage("The Doctor Will Be There Shortly")
-//                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                            public void onClick(DialogInterface dialog, int which) {
-//                                // continue with delete
-//                            }
-//                        })
-//                        .setIcon(android.R.drawable.ic_dialog_alert)
-//                        .show();
+
             }
         });
 
@@ -126,7 +99,7 @@ public class HomeActivity extends AppCompatActivity implements GoogleApiClient.C
             public void onClick(View v) {
                 // Perform action on click
 
-                Intent intent = new Intent(HomeActivity.this, QuestionsActivity.class);
+                Intent intent = new Intent(HomeActivity.this, HeartRateActivity.class);
                 startActivity(intent);
             }
         });
@@ -135,7 +108,7 @@ public class HomeActivity extends AppCompatActivity implements GoogleApiClient.C
         responseHistoryButotn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
-                Intent intent = new Intent(HomeActivity.this, HeartRateActivity.class);
+                Intent intent = new Intent(HomeActivity.this, QuestionsActivity.class);
                 startActivity(intent);
             }
         });
@@ -179,27 +152,27 @@ public class HomeActivity extends AppCompatActivity implements GoogleApiClient.C
         mGoogleApiClient.disconnect();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_home, menu);
+//        return true;
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     Emitter.Listener onNewMessage = new Emitter.Listener() {
         @Override
@@ -225,7 +198,7 @@ public class HomeActivity extends AppCompatActivity implements GoogleApiClient.C
         @Override
         public void call(Object... args) {
             JSONObject data = (JSONObject) args[0];
-            
+            //Parse data here and store
 
         }
     };

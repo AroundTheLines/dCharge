@@ -15,16 +15,16 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int index) {
-
-        switch (index) {
-            case 0:
-                // Top Rated fragment activity
-                return new HeartRateFragment();
-            case 1:
-                // Games fragment activity
-                return new QuestionsFragment();
-
-        }
+//
+//        switch (index) {
+//            case 0:
+//                // Top Rated fragment activity
+//                return new HeartRateFragment();
+//            case 1:
+//                // Games fragment activity
+//                return new QuestionsFragment();
+//
+//        }
         return null;
     }
 

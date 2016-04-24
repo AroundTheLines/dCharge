@@ -1,12 +1,13 @@
-package nioth.dev.dcharge;
+package nioth.dev.dcharge.Old;
 
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import nioth.dev.dcharge.R;
+import nioth.dev.dcharge.TabsPagerAdapter;
 
 public class InfoActivity extends AppCompatActivity implements
             ActionBar.TabListener {
@@ -34,32 +35,6 @@ public class InfoActivity extends AppCompatActivity implements
             message = "D 160.2 ng/ml";
         }
 
-
-//        if(message == null){
-//            System.out.println("GG");
-//
-//        }else{
-//            String[] vitaminInfo = message.split("\\s+");
-//            vitaminType = vitaminInfo[0];
-//            vitaminValue = Double.parseDouble(vitaminInfo[1]);
-//            //System.out.println(vitaminValue);
-//
-//            vitaminMeasurement = vitaminInfo[2];
-//        }
-
-//
-//
-//
-//        introText = (TextView) findViewById(R.id.introText);
-//        vitaminLevelDisplay = (TextView) findViewById(R.id.vitaminLevelDisplay);
-//        //vitaminMeasureDisplay = (TextView) findViewById(R.id.vitaminMeasureDisplay);
-//
-//        introText.setText("Current " + vitaminType + " Level");
-//        vitaminLevelDisplay.setText(vitaminValue + vitaminMeasurement);
-
-        // vitaminTypeDisplay.setText(vitaminType);
-
-        // Initilization
         viewPager = (ViewPager) findViewById(R.id.pager);
         //  actionBar = getSupportActionBar();
         mAdapter = new TabsPagerAdapter(getSupportFragmentManager());

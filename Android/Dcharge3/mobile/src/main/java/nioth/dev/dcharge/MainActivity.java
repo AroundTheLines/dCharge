@@ -56,44 +56,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     private String transcriptionNodeId = null;
 
-    private void updateTranscriptionCapability(CapabilityInfo capabilityInfo) {
-        Set<Node> connectedNodes = capabilityInfo.getNodes();
-
-        transcriptionNodeId = pickBestNodeId(connectedNodes);
-    }
-
-    private String pickBestNodeId(Set<Node> nodes) {
-        String bestNodeId = null;
-        // Find a nearby node or pick one arbitrarily
-        for (Node node : nodes) {
-            if (node.isNearby()) {
-                return node.getId();
-            }
-            bestNodeId = node.getId();
-        }
-        return bestNodeId;
-    }
-
-    private void setupSensors() {
-        CapabilityApi.GetCapabilityResult result = Wearable.CapabilityApi.getCapability(mGoogleApiClient, HEART_RATE_MONITOR, CapabilityApi.FILTER_REACHABLE).await();
-        updateTranscriptionCapability(result.getCapability());
-
-        CapabilityApi.CapabilityListener capabilityListener =
-                new CapabilityApi.CapabilityListener() {
-                    @Override
-                    public void onCapabilityChanged(CapabilityInfo capabilityInfo) {
-                        updateTranscriptionCapability(capabilityInfo);
-                    }
-                };
-
-        Wearable.CapabilityApi.addCapabilityListener(
-                mGoogleApiClient,
-                capabilityListener,
-                HEART_RATE_MONITOR);
-    }
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

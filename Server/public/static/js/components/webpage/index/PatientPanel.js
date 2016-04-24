@@ -8,12 +8,11 @@ var PatientPanel = React.createClass({
 					<div className="panel-heading">
 						<div className="row">
 							<div className="col-xs-3">
-								<img src="imgs/camel1.jpg" alt="camelface" className="img-circle portrait"/>
+								<img src="imgs/camel1.jpg" alt="Profile Picture" className="img-circle portrait"/>
 							</div>
 							<div className="col-xs-9 text-right">
-								<div className="huge">John Smith</div>
-								<div>1337 University Ave L8R 1O1</div>
-								<div>Last Checkin : 30m</div>
+								<div className="huge">{this.props.name || "John Smith"}</div>
+								<div>{this.props.address || "1337 University Ave L8R 1O1"}</div>
 							</div>
 						</div>
 					</div>

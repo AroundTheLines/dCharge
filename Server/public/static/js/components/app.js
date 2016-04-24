@@ -2,9 +2,11 @@
 import React from 'react';
 import io from 'socket.io-client';
 
-import Header from './Header.js';
-import Index from './webpage/Index.js';
+import Router from 'react-router';
+// var RouteHandler = require('react-router').RouteHandler;
 import Navbars from './navbar/Navbars.js';
+import Index from './webpage/Index.js';
+import Graph from './webpage/graphs/graph.js';
 
 
 var App = React.createClass({
@@ -16,17 +18,11 @@ var App = React.createClass({
 	},
 
 	componentWillMount(){
+		console.log("connecting");
 		var sock = this.socket;
 		sock = io('http://localhost:3000');
 		sock.on('connect', this.connect);
-
 		sock.on('disconnect', this.disconnect);
-		sock.on('heart_rate_test', function(data){
-			console.log(data);
-			sock.emit('heart_rate', {
-				helloooooo: "ooooo"
-			})
-		});
 
 		sock.on('global test', function(data){
 			console.log("Global test successful " + data);
@@ -34,8 +30,10 @@ var App = React.createClass({
 	},
 
 	connect(){
-		this.setState({status: 'connected'});
 		console.log("connected");
+		this.setState({status: 'connected'});
+		console.log("status is: " + this.state.status);
+		
 	},
 
 	disconnect(){
@@ -48,6 +46,7 @@ var App = React.createClass({
 			<div>
 				<Navbars />
 				<Index />
+				<Graph />
 			</div>
 		)
 	}

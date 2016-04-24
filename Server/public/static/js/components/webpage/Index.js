@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import PatientPanel from './index/PatientPanel.js';
 
 var Index = React.createClass({
@@ -12,10 +13,10 @@ var Index = React.createClass({
 					</div>
 				</div>
 				<div className="row">
-					<PatientPanel />
-					<PatientPanel />
-					<PatientPanel />
-					<PatientPanel />
+					<PatientPanel name="Qile Wang"/>
+					<PatientPanel name="Quin Millard"/>
+					<PatientPanel name="Umesh Khanna"/>
+					<PatientPanel name="Ethan Liang"/>
 				</div>
 			</div>
 		)

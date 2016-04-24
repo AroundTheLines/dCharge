@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:tag="cards main container"
+    android:background="@color/material_grey_100"
+    android:weightSum="1">
+
+
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="4dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:clickable="false"
+        android:background="#f78a8689"
+        android:layout_marginBottom="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="293dp"
+                android:layout_height="60dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:scrollHorizontally="true"
+                android:id="@+id/question_textview"
+                android:textSize="14dp"
+                android:textColor="#353839"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:scrollHorizontally="true"
+                android:id="@+id/answer_textview"
+                android:textSize="14dp"
+                android:gravity="center_horizontal"
+                android:textColor="#353839"/>
+
+            <!--<TextView-->
+                <!--android:layout_width="100dp"-->
+                <!--android:layout_height="match_parent"-->
+
+                <!--android:ellipsize="end"-->
+                <!--android:maxLines="1"-->
+                <!--android:scrollHorizontally="true"-->
+                <!--android:id="@+id/time"-->
+                <!--android:textSize="14dp"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:textColor="#353839"/>-->
+
+            <!--<View-->
+                <!--android:layout_width="2dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:id="@+id/separator2"-->
+                <!--android:visibility="visible"-->
+                <!--android:background="@android:color/darker_gray"/>-->
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+
+</LinearLayout>

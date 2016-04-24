@@ -33,18 +33,22 @@ server.listen(port, function(){
 
 io.on('connection', function (socket) {
 	console.log("Hello socket " + socket.id);
-	socket.broadcast.emit('new message', {
+	socket.emit('message', {
 			username: "asdsdsadsad",
 			message: "blargh"
 	});
 
 	socket.on('new message', function (data){
 		console.log("the data received is: " + data);
-		socket.broadcast.emit('new message', {
+		socket.emit('message', {
 			username: "asdsdsadsad",
 			message: "blah"
 		});
 	});
+
+	socket.on('message', function(data){
+		console.log(data);
+	})
 
 	socket.on('login', function(data){
 		console.log(data.username);
@@ -58,7 +62,7 @@ io.on('connection', function (socket) {
 });
 
 
-app.use(express.static('./public/views'));
+app.use(express.static('./public/static'));
 // app.get('/', function(req, res){
 // 	patientsRef.push({
 // 		name: "John Smith",
